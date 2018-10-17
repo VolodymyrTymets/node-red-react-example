@@ -8,7 +8,10 @@ class ImageCropperPalletManager extends PalletManager{
   constructor(RED, palletConfig, node) {
     super(RED, palletConfig, node);
 
-    this._self.value = palletConfig.value;
+    this._self.cropX = palletConfig.cropX;
+    this._self.cropY = palletConfig.cropY;
+    this._self.cropHidth = palletConfig.cropHidth;
+    this._self.cropWidth = palletConfig.cropWidth;
     this._self.palletType = 'apiko-image-cropper';
 
     this.onInput = this.onInput.bind(this._self);
@@ -25,15 +28,14 @@ class ImageCropperPalletManager extends PalletManager{
    * **/
   onInput(msg) {
     try {
-      const { value, name } = this;
+      const { cropX, cropY, cropWidth, cropHeight } = this;
 
-      if(!name) {
-        this._processError("Should be name");
+      if(!cropX || !cropY) {
+        this._processError("Should be X and Y");
         return;
       }
-      this.extendMsgPayload(msg, {
-        // extend here
-      })
+      this.extendMsgPayload(msg, {  cropX, cropY, cropWidth, cropHeight});
+      this.send(msg);
     } catch (error) {
       this._processError(error);
       this.error(error);
