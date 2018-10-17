@@ -1,0 +1,43 @@
+<!-- Defining a node -->
+<script type="text/javascript">
+  RED.nodes.registerType('apiko-image-cropper',{
+    category: 'apiko', // the palette category
+    color: '#d2f81d',
+    icon: 'crop.png', // saved in  icons
+    defaults: {
+      name: { value: 'apiko-image-cropper' },
+      value: { value: 0 },
+    },
+    inputs:1,
+    outputs:1,
+    label: function () { return this.name || 'apiko-image-cropper'; },
+    oneditprepare: function () {
+      var node = this;
+      const fileName = '/apiko-image-cropper/js/main.js';
+      $.getScript(fileName) // <- get React code form server part of pallet
+        .done(function() {
+          window.Apiko.onImageCropperLoad(node);
+        })
+        .fail(function(jqxhr, settings, exception ){
+          console.log('Fail of code load from:[' + fileName + ']', exception)
+        });
+    },
+  });
+</script>
+
+
+<!-- Edit dialog -->
+<script type="text/x-red" data-template-name="apiko-image-cropper">
+  <div id="apiko-image-cropper">
+  </div>
+</script>
+
+
+<!-- Help text  -->
+<script type="text/x-red" data-help-name="apiko-image-cropper">
+  <p>
+    Help text here
+  </p>
+</script>
+
+

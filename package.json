@@ -1,0 +1,45 @@
+{
+  "name": "node-red-react-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "sh lint.sh",
+    "build": "webpack --mode development",
+    "build-all": "sh build.sh apiko-image-cropper",
+    "start": "nodemon --watch pallets --watch src/client --exec 'npm run build-all'"
+  },
+  "node-red": {
+    "nodes": {
+      "apiko-image-cropper": "/pallets/apiko-image-cropper/apiko-image-cropper.js"
+    }
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "*/build/"
+    ]
+  },
+  "author": "Volodymyr Tymets",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.10"
+  },
+  "devDependencies": {
+    "@babel/polyfill": "^7.0.0-beta.52",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2017": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^5.0.1",
+    "eslint-plugin-react": "^7.10.0",
+    "nock": "^9.4.1",
+    "nodemon": "^1.17.5",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "recompose": "^0.27.1",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
+  }
+}
