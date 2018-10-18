@@ -1,4 +1,4 @@
-# Service-Workflow
+# Node red React app
 
 
 ## About
@@ -33,7 +33,7 @@ npm install <project-path>/<folder-name>
 `npm run start`
 
 3. Run node-red
-4. Build flow or use existing
+4. Build your own flow 
 
 
 ## Project structure
