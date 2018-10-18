@@ -6,12 +6,13 @@
   "scripts": {
     "lint": "sh lint.sh",
     "build": "webpack --mode development",
-    "build-all": "sh build.sh apiko-image-cropper",
+    "build-all": "sh build.sh apiko-image-cropper apiko-image-gallery",
     "start": "nodemon --watch pallets --watch src/client --exec 'npm run build-all'"
   },
   "node-red": {
     "nodes": {
-      "apiko-image-cropper": "/pallets/apiko-image-cropper/apiko-image-cropper.js"
+      "apiko-image-cropper": "/pallets/apiko-image-cropper/apiko-image-cropper.js",
+      "apiko-image-gallery": "/pallets/apiko-image-gallery/apiko-image-gallery.js"
     }
   },
   "nodemonConfig": {
@@ -41,6 +42,7 @@
     "nodemon": "^1.17.5",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-photo-gallery": "^6.2.1",
     "recompose": "^0.27.1",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2"

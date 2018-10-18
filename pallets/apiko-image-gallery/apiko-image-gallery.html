@@ -1,0 +1,43 @@
+<!-- Defining a node -->
+<script type="text/javascript">
+  RED.nodes.registerType('apiko-image-gallery',{
+    category: 'apiko', // the palette category
+    color: '#d2f81d',
+    icon: 'gallery.png', // saved in  icons
+    defaults: {
+      name: { value: 'apiko-image-gallery' },
+      url: { value: '' },
+    },
+    inputs:1,
+    outputs:1,
+    label: function () { return this.name || 'apiko-image-gallery'; },
+    oneditprepare: function () {
+      var node = this;
+      const fileName = '/apiko-image-gallery/js/main.js';
+      $.getScript(fileName) // <- get React code form server part of pallet
+        .done(function() {
+          window.Apiko.onImageGalleryLoad(node);
+        })
+        .fail(function(jqxhr, settings, exception ){
+          console.log('Fail of code load from:[' + fileName + ']', exception)
+        });
+    },
+  });
+</script>
+
+
+<!-- Edit dialog -->
+<script type="text/x-red" data-template-name="apiko-image-gallery">
+  <div id="apiko-image-gallery">
+  </div>
+</script>
+
+
+<!-- Help text  -->
+<script type="text/x-red" data-help-name="apiko-image-gallery">
+  <p>
+    Help text here
+  </p>
+</script>
+
+

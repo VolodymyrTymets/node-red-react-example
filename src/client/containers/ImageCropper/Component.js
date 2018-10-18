@@ -8,7 +8,6 @@ import './style.css';
 const ImageCropper = ({ node, src, crop, onSelectFile, onImageLoaded, onCropComplete, onCropChange }) => (
   <div className="apiko-image-cropper">
     <h3>Image Cropper</h3>
-    <p> Image Cropper here</p>
     <div>
       <div>
         <input type="file" onChange={onSelectFile} />

@@ -1,6 +1,5 @@
 import React from 'react';
 import { compose, branch, renderComponent, withHandlers, withState } from 'recompose';
-import { get } from 'lodash';
 import { withError, withLoader } from '../../utils/recompose-extensions';
 import { Error } from '../../components';
 
@@ -9,7 +8,7 @@ import Component from './Component';
 const enhancer = compose(
   withError,
   withLoader,
-  withState('src', 'setSrc', null),
+  withState('src', 'setSrc', window.Apiko.constants.lastSelectedUrl.value || null),
   withState('crop', 'setCrop', {
     x: 10,
     y: 10,

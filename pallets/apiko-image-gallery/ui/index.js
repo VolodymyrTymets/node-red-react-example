@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ImageCropper from '../../../src/client/containers/ImageCropper';
+import ImageGallery from '../../../src/client/containers/ImageGallery';
 
-const onImageCropper = (node) =>
-  ReactDOM.render(<ImageCropper node={node} />,
-    document.getElementById('apiko-image-cropper'));
+const onImageGallery = (node) =>
+  ReactDOM.render(<ImageGallery node={node} />,
+    document.getElementById('apiko-image-gallery'));
 
 /**
  * This function will be called UI of pallet will be opened
@@ -13,5 +13,5 @@ const onImageCropper = (node) =>
  * **/
 if(window) {
   window.Apiko = window.Apiko || {};
-  window.Apiko.onImageCropperLoad = onImageCropper;
+  window.Apiko.onImageGalleryLoad = onImageGallery;
 }
